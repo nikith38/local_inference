@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept Explainer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Concept Explainer</h1>
+      <p>Explain complex concepts in simple words using a local LLM</p>
+    </header>
+
+    <main>
+      <div class="input-section">
+        <form id="explainer-form">
+          <div class="form-group">
+            <label for="prompt">What concept would you like explained?</label>
+            <textarea id="prompt" rows="3" placeholder="Enter a concept or term (e.g., 'quantum computing', 'blockchain', 'machine learning')"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="temperature">Temperature: <span id="temp-value">0.7</span></label>
+            <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+            <p class="hint">Lower values (closer to 0) make the output more focused and deterministic. Higher values (closer to 1) make the output more creative and varied.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="model">Model:</label>
+            <select id="model">
+              <option value="llama3">Llama 3</option>
+              <option value="mistral">Mistral</option>
+              <option value="gemma">Gemma</option>
+            </select>
+          </div>
+          
+          <button type="submit" id="submit-btn">Explain</button>
+        </form>
+      </div>
+
+      <div class="output-section">
+        <div class="output-container">
+          <h2>Explanation</h2>
+          <div id="explanation">Your explanation will appear here...</div>
+        </div>
+      </div>
+
+      <div id="loading" class="loading-container hidden">
+        <div class="loading-spinner"></div>
+        <p>Thinking...</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>Powered by local LLM - No data sent to external APIs</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html> 
